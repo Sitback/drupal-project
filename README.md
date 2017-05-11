@@ -1,9 +1,7 @@
-# Composer template for Drupal projects
-
-[![Build Status](https://travis-ci.org/drupal-composer/drupal-project.svg?branch=8.x)](https://travis-ci.org/drupal-composer/drupal-project)
+# Composer template for Presto-based Drupal projects
 
 This project template should provide a kickstart for managing your site
-dependencies with [Composer](https://getcomposer.org/).
+dependencies with [Composer](https://getcomposer.org/) and the [Presto](https://github.com/Sitback/presto) installation profile.
 
 If you want to know how to use it as replacement for
 [Drush Make](https://github.com/drush-ops/drush/blob/master/docs/make.md) visit
@@ -20,14 +18,14 @@ for your setup.
 After that you can create the project:
 
 ```
-composer create-project drupal-composer/drupal-project:8.x-dev some-dir --stability dev --no-interaction
+composer create-project sitback/presto my-drupal-site --stability dev --no-interaction
 ```
 
 With `composer require ...` you can download new dependencies to your 
 installation.
 
 ```
-cd some-dir
+cd my-drupal-site
 composer require drupal/devel:~1.0
 ```
 
@@ -45,6 +43,7 @@ When installing the given `composer.json` some tasks are taken care of:
 * Modules (packages of type `drupal-module`) will be placed in `web/modules/contrib/`
 * Theme (packages of type `drupal-theme`) will be placed in `web/themes/contrib/`
 * Profiles (packages of type `drupal-profile`) will be placed in `web/profiles/contrib/`
+* The Presto profile is installed into the profiles directory
 * Creates default writable versions of `settings.php` and `services.yml`.
 * Creates `web/sites/default/files`-directory.
 * Latest version of drush is installed locally for use at `vendor/bin/drush`.
@@ -53,7 +52,7 @@ When installing the given `composer.json` some tasks are taken care of:
 ## Updating Drupal Core
 
 This project will attempt to keep all of your Drupal Core files up-to-date; the 
-project [drupal-composer/drupal-scaffold](https://github.com/drupal-composer/drupal-scaffold) 
+project [Sitback/presto-project](https://github.com/Sitback/presto-project) 
 is used to ensure that your scaffold files are updated every time drupal/core is 
 updated. If you customize any of the "scaffolding" files (commonly .htaccess), 
 you may need to merge conflicts if any of your modified files are updated in a 
@@ -90,7 +89,7 @@ workrounds if a project decides to do it anyway](https://getcomposer.org/doc/faq
 
 ### Should I commit the scaffolding files?
 
-The [drupal-scaffold](https://github.com/drupal-composer/drupal-scaffold) plugin can download the scaffold files (like
+The [presto-project](https://github.com/Sitback/presto-project) plugin can download the scaffold files (like
 index.php, update.php, …) to the web/ directory of your project. If you have not customized those files you could choose
 to not check them into your version control system (e.g. git). If that is the case for your project it might be
 convenient to automatically run the drupal-scaffold plugin after every install or update of your project. You can
@@ -126,6 +125,3 @@ section of composer.json:
     }
 }
 ```
-### How do I switch from packagist.drupal-composer.org to packages.drupal.org?
-
-Follow the instructions in the [documentation on drupal.org](https://www.drupal.org/docs/develop/using-composer/using-packagesdrupalorg).
