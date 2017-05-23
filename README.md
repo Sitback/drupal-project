@@ -1,7 +1,7 @@
-# Composer template for Presto-based Drupal projects
+# Composer template for Drupal projects with Presto!
 
-This project template should provide a kickstart for managing your site
-dependencies with [Composer](https://getcomposer.org/) and the [Presto](https://github.com/Sitback/presto) installation profile.
+This Composer project template provides a kickstart for managing your site
+dependencies with [Composer](https://getcomposer.org/) and the [Presto!](https://github.com/Sitback/presto) installation profile.
 
 If you want to know how to use it as replacement for
 [Drush Make](https://github.com/drush-ops/drush/blob/master/docs/make.md) visit
@@ -37,24 +37,27 @@ all files not excluded by the .gitignore file.
 
 When installing the given `composer.json` some tasks are taken care of:
 
-* Drupal will be installed in the `web`-directory.
-* Autoloader is implemented to use the generated composer autoloader in `vendor/autoload.php`,
-  instead of the one provided by Drupal (`web/vendor/autoload.php`).
+* Drupal is installed in the `web`-directory.
+* The generated composer autoloader in `vendor/autoload.php` is used instead of the one provided by Drupal (`web/vendor/autoload.php`).
 * Modules (packages of type `drupal-module`) will be placed in `web/modules/contrib/`
-* Theme (packages of type `drupal-theme`) will be placed in `web/themes/contrib/`
+* Themes (packages of type `drupal-theme`) will be placed in `web/themes/contrib/`
 * Profiles (packages of type `drupal-profile`) will be placed in `web/profiles/contrib/`
-* The Presto profile is installed into the profiles directory
-* Creates default writable versions of `settings.php` and `services.yml`.
-* Creates `web/sites/default/files`-directory.
-* Latest version of drush is installed locally for use at `vendor/bin/drush`.
-* Latest version of DrupalConsole is installed locally for use at `vendor/bin/drupal`.
+* `npm` and `bower` assets installed via Composer will be placed in `web/libraries/`
+  - See [Asset Packagist](https://asset-packagist.org/) for a pacakge listing
+* The Presto! profile is installed into the `web/profiles/contrib/` directory and set as the default distribution
+* Default writable versions of `settings.php` and `services.yml` are created.
+* A `web/sites/default/files` directory is created and made writable
+* The latest version of drush is installed locally for use at `vendor/bin/drush`.
+* The latest version of the Drupal Console is installed locally for use at `vendor/bin/drupal`.
 
 ## Updating Drupal Core
 
-This project will attempt to keep all of your Drupal Core files up-to-date; the 
+This project will attempt to keep all of your Drupal Core files up-to-date. The 
 project [Sitback/presto-project](https://github.com/Sitback/presto-project) 
 is used to ensure that your scaffold files are updated every time drupal/core is 
-updated. If you customize any of the "scaffolding" files (commonly .htaccess), 
+updated.
+
+If you customize any of the "scaffolding" files (commonly `.htaccess`), 
 you may need to merge conflicts if any of your modified files are updated in a 
 new release of Drupal core.
 
@@ -85,7 +88,7 @@ that the generated `composer.json` might differ from this project's file.
 ### Should I commit the contrib modules I download?
 
 Composer recommends **no**. They provide [argumentation against but also 
-workrounds if a project decides to do it anyway](https://getcomposer.org/doc/faqs/should-i-commit-the-dependencies-in-my-vendor-directory.md).
+workarounds if a project decides to do it anyway](https://getcomposer.org/doc/faqs/should-i-commit-the-dependencies-in-my-vendor-directory.md).
 
 ### Should I commit the scaffolding files?
 
